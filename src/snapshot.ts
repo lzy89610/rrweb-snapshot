@@ -233,12 +233,14 @@ function serializeNode(
         tagName === 'select'
       ) {
         const value = (n as HTMLInputElement | HTMLTextAreaElement).value;
+        //脱敏、混淆
         if (
           attributes.type !== 'radio' &&
           attributes.type !== 'checkbox' &&
+          attributes.type !== 'button' &&
           value
         ) {
-          attributes.value = maskAllInputs ? '*'.repeat(value.length) : value;
+          attributes.value = '*'.repeat(value.length);
         } else if ((n as HTMLInputElement).checked) {
           attributes.checked = (n as HTMLInputElement).checked;
         }
