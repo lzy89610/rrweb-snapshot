@@ -233,7 +233,7 @@ function serializeNode(
         tagName === 'select'
       ) {
         const value = (n as HTMLInputElement | HTMLTextAreaElement).value;
-        //脱敏、混淆
+        //脱敏、混淆。后续看下有其他type不应被屏蔽
         if (
           attributes.type !== 'radio' &&
           attributes.type !== 'checkbox' &&
